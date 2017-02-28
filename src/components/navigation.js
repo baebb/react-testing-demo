@@ -20,9 +20,6 @@ export default (props) => {
             <LinkContainer to="search">
               <NavItem>Search</NavItem>
             </LinkContainer>
-            <LinkContainer to="error">
-              <NavItem>Error</NavItem>
-            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -7,18 +7,21 @@ class Detail extends React.Component {
     super(props);
     this.state = {
       id: '123',
-      cat: 'dog'
+      cat: 'cat'
     }
   }
 
   componentWillMount() {
-    this.setState({...this.state, id: this.props.params.id});
+    let { id, model, make } = this.props.params;
+    this.setState({...this.state, id: id, model: model, make: make});
   }
 
   render() {
     return (
       <div>
         <ul></ul>
+        <p>{this.state.make}</p>
+        <p>{this.state.model}</p>
         <p>{this.state.id}</p>
         <p>{this.state.cat}</p>
       </div>

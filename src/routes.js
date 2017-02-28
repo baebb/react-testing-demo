@@ -13,8 +13,7 @@ export default (
       <IndexRoute component={Home}/>
       <Route path=":make/:model/:id" component={Detail} />
       <Route path="search" component={Search} />
-      <Route path="error" component={NotFound} />
-      {/*<Route path="*" component={NotFound} status={404} />*/}
+      <Route path="*" component={NotFound} status={404} />
     </Route>
   </Router>
 )
