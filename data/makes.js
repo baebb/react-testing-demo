@@ -1,4 +1,4 @@
-[
+export default [
   {
     "id": 10,
     "name": "Porsche"

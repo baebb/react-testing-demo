@@ -1,4 +1,4 @@
-[
+export default [
   {
     "id": 100,
     "makeId": 10,

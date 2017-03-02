@@ -2,7 +2,7 @@ import React from 'react';
 import {IndexLinkContainer, LinkContainer} from 'react-router-bootstrap';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
 
-export default (props) => {
+export default () => {
   return (
     <div>
       <Navbar fluid collapseOnSelect>
