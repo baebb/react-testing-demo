@@ -17,25 +17,19 @@ export function findCar(make, model, id) {
 }
 
 export function getMakes() {
-  let carMakes = makes;
-  // console.log('action hit', carMakes);
-  
   return {
     type: GET_MAKES,
-    payload: carMakes
+    payload: makes
   }
 }
 
 export function getModels(makeId) {
-  const carModels = models
+  const selectedMakeModels = models
     .filter((model) => {
       return model.makeId === makeId;
     });
-  
-  // console.log('action hit', carModels);
-  
   return {
     type: GET_MODELS,
-    payload: carModels
+    payload: selectedMakeModels
   }
 }

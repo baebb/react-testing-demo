@@ -17,7 +17,7 @@ export default () => {
             <IndexLinkContainer to="/">
               <NavItem>Home</NavItem>
             </IndexLinkContainer>
-            <LinkContainer to="search">
+            <LinkContainer to="/search">
               <NavItem>Search</NavItem>
             </LinkContainer>
           </Nav>
