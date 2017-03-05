@@ -18,7 +18,7 @@ export function findCar(make, model, id) {
 
 export function getMakes() {
   let carMakes = makes;
-  console.log('action hit', carMakes);
+  // console.log('action hit', carMakes);
   
   return {
     type: GET_MAKES,
@@ -32,7 +32,7 @@ export function getModels(makeId) {
       return model.makeId === makeId;
     });
   
-  console.log('action hit', carModels);
+  // console.log('action hit', carModels);
   
   return {
     type: GET_MODELS,

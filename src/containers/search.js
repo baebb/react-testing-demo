@@ -19,6 +19,14 @@ class Search extends React.Component {
     this.props.dispatch(getMakes());
   }
   
+  
+  renderOptions(optionItem) {
+    let {id, name} = optionItem;
+    return (
+      <option key={id} value={name}>{name}</option>
+    )
+  }
+  
   validate(e) {
     e.preventDefault();
     let {selectedMake, selectedModel} = this.state;
@@ -35,20 +43,6 @@ class Search extends React.Component {
       this.setState({...this.state, message: ''});
       findCar(selectedMake, selectedModel, )
     }
-  }
-  
-  renderMakes(makeObj) {
-    let {id, name} = makeObj;
-    return (
-      <option key={id} value={name}>{name}</option>
-    )
-  }
-  
-  renderModels(modelObj) {
-    let {id, name} = modelObj;
-    return (
-      <option key={id} value={name}>{name}</option>
-    )
   }
   
   handleChange(key, e) {
@@ -77,7 +71,7 @@ class Search extends React.Component {
                   onChange={this.handleChange.bind(this, 'selectedMake')}
                 >
                   <option value="placeholder" disabled>Select</option>
-                  {this.props.currentMakes.map(this.renderMakes)}
+                  {this.props.currentMakes.map(this.renderOptions)}
                 </FormControl>
               </FormGroup>
               <FormGroup controlId="selectedModel">
@@ -88,7 +82,7 @@ class Search extends React.Component {
                   onChange={this.handleChange.bind(this, 'selectedModel')}
                 >
                   <option value="placeholder" disabled>Select</option>
-                  {this.props.currentModels.map(this.renderModels)}
+                  {this.props.currentModels.map(this.renderOptions)}
                 </FormControl>
               </FormGroup>
               {this.state.message && <HelpBlock>{this.state.message}</HelpBlock>}
