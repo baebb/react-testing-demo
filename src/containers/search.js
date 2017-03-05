@@ -32,14 +32,11 @@ class Search extends React.Component {
     let {selectedMake, selectedModel} = this.state;
     if (selectedMake === '') {
       this.setState({...this.state, message: 'Select a car make'});
-      console.log('no selected make');
     }
     else if (selectedModel === '') {
-      console.log('no model');
       this.setState({...this.state, message: 'Select a car model'});
     }
     else {
-      console.log('success');
       this.setState({...this.state, message: ''});
       findCar(selectedMake, selectedModel, )
     }
@@ -77,6 +74,7 @@ class Search extends React.Component {
               <FormGroup controlId="selectedModel">
                 <ControlLabel>Car model:</ControlLabel>
                 <FormControl
+                  disabled={!this.state.selectedMake}
                   componentClass="select"
                   defaultValue="placeholder"
                   onChange={this.handleChange.bind(this, 'selectedModel')}
@@ -87,8 +85,10 @@ class Search extends React.Component {
               </FormGroup>
               {this.state.message && <HelpBlock>{this.state.message}</HelpBlock>}
               <Button
+                disabled={!this.state.selectedMake || !this.state.selectedModel}
                 block
                 bsStyle="danger"
+                id="submit"
                 type="submit"
               >
                 Search
