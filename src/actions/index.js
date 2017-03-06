@@ -5,6 +5,7 @@ import models from '../../data/models';
 export const FIND_CAR = 'FIND_CAR';
 export const GET_MAKES = 'GET_MAKES';
 export const GET_MODELS = 'GET_MODELS';
+export const GET_DETAILS = 'GET_DETAILS';
 
 export function findCar(make, model, id) {
   const path = `/${make}/${model}/${id}`;
@@ -31,5 +32,16 @@ export function getModels(makeId) {
   return {
     type: GET_MODELS,
     payload: selectedMakeModels
+  }
+}
+
+export function getDetails(id) {
+  const selectedCar = models
+    .find((model) => {
+      return model.id == id;
+    });
+  return {
+    type: GET_DETAILS,
+    payload: selectedCar
   }
 }

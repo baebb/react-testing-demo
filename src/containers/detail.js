@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {getDetails} from '../actions/index';
 
 
 class Detail extends React.Component {
@@ -13,7 +14,8 @@ class Detail extends React.Component {
 
   componentWillMount() {
     let { id, model, make } = this.props.params;
-    this.setState({...this.state, id: id, model: model, make: make});
+    this.props.dispatch(getDetails(id));
+    // this.setState({...this.state, id: id, model: model, make: make});
   }
 
   render() {
@@ -29,4 +31,10 @@ class Detail extends React.Component {
   }
 }
 
-export default connect(null, null)(Detail);
+function mapStateToProps(state) {
+  return {
+    selectedCar: state.cars.selectedCar
+  }
+}
+
+export default connect(mapStateToProps, null)(Detail);

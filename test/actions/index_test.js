@@ -4,9 +4,9 @@ import makes from '../../data/makes';
 import models from '../../data/models';
 
 //types
-import {FIND_CAR, GET_MAKES, GET_MODELS} from '../../src/actions/index';
+import {FIND_CAR, GET_MAKES, GET_MODELS, GET_DETAILS} from '../../src/actions/index';
 //actions
-import {findCar, getMakes, getModels} from '../../src/actions/index';
+import {findCar, getMakes, getModels, getDetails} from '../../src/actions/index';
 
 describe('Actions', () => {
   describe('findCar', () => {
@@ -37,6 +37,20 @@ describe('Actions', () => {
     })
     it('has the correct payload', () => {
       expect(action.payload).to.deep.equal(selectedMakeModels);
+    })
+  });
+  describe('getDetails', () => {
+    const carId = 320;
+    const action = getDetails(carId);
+    const selectedCar = models
+      .find((model) => {
+        return model.id == carId;
+      });
+    it('has the correct type', () => {
+      expect(action.type).to.equal(GET_DETAILS);
+    })
+    it('has the correct payload', () => {
+      expect(action.payload).to.deep.equal(selectedCar);
     })
   });
 });
