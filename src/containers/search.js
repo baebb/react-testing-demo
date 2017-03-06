@@ -10,9 +10,9 @@ class Search extends React.Component {
     this.state = {
       selectedMake: '',
       selectedModel: '',
+      selectedModelId: '',
       message: ''
     };
-    
   }
   
   componentDidMount() {
@@ -23,13 +23,13 @@ class Search extends React.Component {
   renderOptions(optionItem) {
     let {id, name} = optionItem;
     return (
-      <option key={id} value={name}>{name}</option>
+      <option key={id} data-id={id} value={name}>{name}</option>
     )
   }
   
   validate(e) {
     e.preventDefault();
-    let {selectedMake, selectedModel} = this.state;
+    let {selectedMake, selectedModel, selectedModelId} = this.state;
     if (selectedMake === '') {
       this.setState({...this.state, message: 'Select a car make'});
     }
@@ -38,18 +38,28 @@ class Search extends React.Component {
     }
     else {
       this.setState({...this.state, message: ''});
-      findCar(selectedMake, selectedModel, )
+      findCar(selectedMake, selectedModel, selectedModelId)
     }
   }
   
-  handleChange(key, e) {
+  handleChange(e) {
     let newValue = e.target.value;
-    this.setState({...this.state, [key]: newValue});
+    let key = e.target.id;
     if (key === 'selectedMake') {
       let makeObj = this.props.currentMakes.find((make) => {
         return make.name === newValue;
       });
       this.props.dispatch(getModels(makeObj.id));
+      this.setState({...this.state, [key]: newValue});
+    }
+    else if (key === 'selectedModel') {
+      let modelObj = this.props.currentModels.find((model) => {
+        return model.name === newValue;
+      });
+      this.setState({...this.state, [key]: newValue, selectedModelId: modelObj.id});
+    }
+    else {
+      this.setState({...this.state, [key]: newValue});
     }
   }
   
@@ -65,7 +75,7 @@ class Search extends React.Component {
                 <FormControl
                   defaultValue="placeholder"
                   componentClass="select"
-                  onChange={this.handleChange.bind(this, 'selectedMake')}
+                  onChange={this.handleChange.bind(this)}
                 >
                   <option value="placeholder" disabled>Select</option>
                   {this.props.currentMakes.map(this.renderOptions)}
@@ -77,7 +87,7 @@ class Search extends React.Component {
                   disabled={!this.state.selectedMake}
                   componentClass="select"
                   defaultValue="placeholder"
-                  onChange={this.handleChange.bind(this, 'selectedModel')}
+                  onChange={this.handleChange.bind(this)}
                 >
                   <option value="placeholder" disabled>Select</option>
                   {this.props.currentModels.map(this.renderOptions)}

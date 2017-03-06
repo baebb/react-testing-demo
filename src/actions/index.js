@@ -7,7 +7,7 @@ export const GET_MAKES = 'GET_MAKES';
 export const GET_MODELS = 'GET_MODELS';
 
 export function findCar(make, model, id) {
-  const path = `/${make}/${model}/300`;
+  const path = `/${make}/${model}/${id}`;
   const url = browserHistory.push(path);
   
   return {
