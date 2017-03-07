@@ -41,11 +41,13 @@ export function getDetails(id) {
     .find((model) => {
       return model.id == id;
     });
-  const selectedCarMake = makes
-    .find((make) => {
-      return make.id == selectedCar.makeId
-    });
-  selectedCar.make = selectedCarMake.name;
+  if (selectedCar !== undefined) {
+    const selectedCarMake = makes
+      .find((make) => {
+        return make.id == selectedCar.makeId
+      });
+    selectedCar.make = selectedCarMake.name;
+  }
   return {
     type: GET_DETAILS,
     payload: selectedCar
