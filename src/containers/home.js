@@ -16,11 +16,11 @@ class Home extends React.Component {
           <div className="col-sm-12 col-md-6 col-md-offset-3">
             <div className="car-details text-center">
               <h2>Car of the week:</h2>
-              <p><strong>Car make:</strong> {carOfTheWeek.make}</p>
-              <p><strong>Car model:</strong> {carOfTheWeek.name}</p>
-              <p><strong>Car price:</strong> {carOfTheWeek.price}</p>
-              <p><strong>Car review:</strong> {carOfTheWeek.review}</p>
-              <img className="img-responsive" src={carOfTheWeek.imageUrl}/>
+              <p className="carMake"><strong>Car make:</strong> {carOfTheWeek.make}</p>
+              <p className="carName"><strong>Car model:</strong> {carOfTheWeek.name}</p>
+              <p className="carPrice"><strong>Car price:</strong> {carOfTheWeek.price}</p>
+              <p className="carReview"><strong>Car review:</strong> {carOfTheWeek.review}</p>
+              <img className="carPicture img-responsive" src={carOfTheWeek.imageUrl}/>
             </div>
           </div>
         </div>
