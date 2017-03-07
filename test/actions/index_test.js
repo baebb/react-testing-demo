@@ -14,16 +14,16 @@ describe('Actions', () => {
     const action = findCar('BMW', '2');
     it('has the correct type', () => {
       expect(action.type).to.equal(FIND_CAR);
-    })
+    });
   });
   describe('getMakes', () => {
     const action = getMakes();
     it('has the correct type', () => {
       expect(action.type).to.equal(GET_MAKES);
-    })
+    });
     it('has the correct paylaod', () => {
       expect(action.payload).to.equal(makes);
-    })
+    });
   });
   describe('getModels', () => {
     const modelNumber = 20;
@@ -34,10 +34,10 @@ describe('Actions', () => {
       });
     it('has the correct type', () => {
       expect(action.type).to.equal(GET_MODELS);
-    })
+    });
     it('has the correct payload', () => {
       expect(action.payload).to.deep.equal(selectedMakeModels);
-    })
+    });
   });
   describe('getDetails', () => {
     const carId = 320;
@@ -48,9 +48,9 @@ describe('Actions', () => {
       });
     it('has the correct type', () => {
       expect(action.type).to.equal(GET_DETAILS);
-    })
+    });
     it('has the correct payload', () => {
       expect(action.payload).to.deep.equal(selectedCar);
-    })
+    });
   });
 });
