@@ -6,14 +6,10 @@ import {getDetails} from '../actions/index';
 class Detail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      make: '',
-    }
   }
   
   componentWillMount() {
     const {id, model, make} = this.props.params;
-    this.setState({...this.state, make: make});
     this.props.dispatch(getDetails(id));
   }
   
@@ -25,7 +21,7 @@ class Detail extends React.Component {
           <div className="col-sm-12 col-md-6 col-md-offset-3">
             {selectedCar ?
               <div className="car-details text-center">
-                <p><strong>Car make:</strong> {this.state.make}</p>
+                <p><strong>Car make:</strong> {selectedCar.make}</p>
                 <p><strong>Car model:</strong> {selectedCar.name}</p>
                 <p><strong>Car price:</strong> {selectedCar.price}</p>
                 <img className="img-responsive" src={selectedCar.imageUrl}/>

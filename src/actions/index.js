@@ -28,7 +28,7 @@ export function getMakes() {
 export function getModels(makeId) {
   const selectedMakeModels = models
     .filter((model) => {
-      return model.makeId === makeId;
+      return model.makeId == makeId;
     });
   return {
     type: GET_MODELS,
@@ -41,6 +41,11 @@ export function getDetails(id) {
     .find((model) => {
       return model.id == id;
     });
+  const selectedCarMake = makes
+    .find((make) => {
+      return make.id == selectedCar.makeId
+    });
+  selectedCar.make = selectedCarMake.name;
   return {
     type: GET_DETAILS,
     payload: selectedCar
@@ -48,8 +53,10 @@ export function getDetails(id) {
 }
 
 export function getCarOfTheWeek() {
+  const carData = getDetails(carOfTheWeek.modelId);
+  const combinedData = Object.assign(carOfTheWeek, carData.payload);
   return {
     type: GET_CAR_OF_THE_WEEK,
-    payload: carOfTheWeek
+    payload: combinedData
   }
 }
