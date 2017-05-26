@@ -1,7 +1,7 @@
 {
-  "name": "react-carstore-app",
+  "name": "react-testing-demo",
   "version": "0.1.0",
-  "description": "demo of a car website in react redux",
+  "description": "demo of react testing for a mock car website",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --inline --hot --port 3000",
