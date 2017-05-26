@@ -1,7 +1,7 @@
 {
-  "name": "qantas-react-challenge",
+  "name": "react-carstore-app",
   "version": "0.1.0",
-  "description": "",
+  "description": "demo of a car website in react redux",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --inline --hot --port 3000",
