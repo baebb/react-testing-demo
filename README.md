@@ -1,4 +1,4 @@
-# qantas-react-challenge
+# react-testing-demo
 
 Building and making edits:
 
